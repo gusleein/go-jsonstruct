@@ -140,9 +140,7 @@ func WithPackageName(packageName string) GeneratorOption {
 // WithRenames sets the renames.
 func WithRenames(renames map[string]string) GeneratorOption {
 	return func(g *Generator) {
-		for name, rename := range renames {
-			g.exportRenames[name] = rename
-		}
+		maps.Copy(g.exportRenames, renames)
 	}
 }
 
