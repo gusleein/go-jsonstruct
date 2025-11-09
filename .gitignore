@@ -1,3 +1,4 @@
 /*.json
 /*.json.gz
-/coverage.out.idea
+/coverage.out
+/.idea/
