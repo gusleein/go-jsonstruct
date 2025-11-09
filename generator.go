@@ -212,6 +212,12 @@ func WithUseJSONNumber(useJSONNumber bool) GeneratorOption {
 	}
 }
 
+func WithOnlyStruct(onlyStruct bool) GeneratorOption {
+	return func(g *Generator) {
+		g.onlyStruct = onlyStruct
+	}
+}
+
 // NewGenerator returns a new Generator with options.
 func NewGenerator(options ...GeneratorOption) *Generator {
 	g := &Generator{
@@ -267,7 +273,7 @@ func (g *Generator) Generate() ([]byte, error) {
 		structTagNames:           g.structTagNames,
 		useJSONNumber:            g.useJSONNumber,
 	})
-	if len(imports) > 0 || !g.onlyStruct {
+	if len(imports) > 0 && !g.onlyStruct {
 		importsSlice := sortedKeys(imports)
 		fmt.Fprintf(buffer, "import (\n")
 		for _, _import := range importsSlice {

@@ -56,6 +56,7 @@ func run() error {
 		jsonstruct.WithStringTags(*stringTags),
 		jsonstruct.WithUseJSONNumber(*useJSONNumber),
 		jsonstruct.WithGoFormat(*goFormat),
+		jsonstruct.WithOnlyStruct(*onlyStruct),
 	}
 	if *abbreviations != "" {
 		extraAbbreviations := strings.Split(strings.ToUpper(*abbreviations), ",")
