@@ -31,6 +31,7 @@ var (
 	useJSONNumber            = pflag.Bool("use-json-number", false, "use json.Number")
 	goFormat                 = pflag.Bool("go-format", true, "format generated Go code")
 	output                   = pflag.StringP("output", "o", "", "output filename")
+	onlyStruct               = pflag.BoolP("only-struct", "s", false, "only generate structs, skip package name and imports")
 
 	omitEmptyTagsType = map[string]jsonstruct.OmitEmptyTagsType{
 		"never":  jsonstruct.OmitEmptyTagsNever,
